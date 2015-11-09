@@ -9,7 +9,7 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class SecaoMB{
 
-    private List<Secao> secoes;
+    public static List<Secao> secoes;
     
     private List<Sala> salas;
     private List<Filme> filmes;
@@ -66,6 +66,15 @@ public class SecaoMB{
         secoes.remove(secao);
     }
     
+    public Secao findSecaoByCodigo(String codigo) {
+        for (Secao e : secoes) {
+            if (e.getCodigo().equals(codigo)) {
+                return (e);
+            }
+        }
+        return null;
+    }
+     
     public String novoSecao(){
         secao = new Secao();
         return("/admin/sections/register?faces-redirect=true");

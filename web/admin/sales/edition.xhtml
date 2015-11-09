@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="./../../Template/default.xhtml">
+
+    <ui:define name="content">
+        <div id="content" class="center_content">
+            <h3><i class="fa fa-angle-right"></i> Vendas</h3>
+            <div class="row mt">
+                <div class="col-lg-12">
+                    <div class="form-panel">
+                        <h4 class="mb"><i class="fa fa-angle-right" /> Cadastro</h4>
+                        <h:form class="form-horizontal style-form">
+                            <h:messages class="alert alert-danger" showDetail="true"/>
+                            <div class="form-group">                               
+                                <label class="col-sm-2 col-sm-2 control-label">Código</label>
+                                <div class="col-sm-10">
+                                    <h:inputText class="form-control" readonly="true" value="#{secaoMB.secao.codigo}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Horário</label>
+                                <div class="col-sm-10">
+                                    <h:inputText id="dateInput" class="form-control" value="#{secaoMB.secao.horario}" >
+                                        <f:convertDateTime pattern="HH:mm" />
+                                    </h:inputText>
+                                </div>
+                            </div>                            
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Sala</label>
+                                <div class="col-sm-10">                                    
+                                    <h:selectOneMenu class="form-control" label="sala" value="#{secaoMB.secao.sala}" converter="salaConverter" required="true">                
+                                        <f:selectItems value="#{secaoMB.salas}" var="sala" itemLabel="#{sala.numero}" itemValue="#{sala}" /> 
+                                    </h:selectOneMenu>
+                                </div>
+                            </div> 
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Filme</label>
+                                <div class="col-sm-10">                                    
+                                    <h:selectOneMenu class="form-control" label="filme" value="#{secaoMB.secao.filme}" converter="filmeConverter" required="true">                
+                                        <f:selectItems value="#{secaoMB.filmes}" var="filme" itemLabel="#{filme.codigo} - #{filme.nome}" itemValue="#{filme}" /> 
+                                    </h:selectOneMenu>
+                                </div>
+                            </div>
+                            <div class="btn-group" style="float: right;">
+                                <h:commandButton class="btn btn-primary btn-sm pull-right" style="width: 100px;" action="#{secaoMB.atualizarSecao()}" value="salvar" />
+                            </div>
+                            <br/><br/>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>
