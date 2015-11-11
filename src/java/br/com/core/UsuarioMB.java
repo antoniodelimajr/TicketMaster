@@ -14,7 +14,8 @@ public class UsuarioMB {
             Arrays.asList(
                     new Usuario("Fulano", "fulano@teste.com", "fulano", false),
                     new Usuario("Beltrano", "beltrano@teste.com", "beltrano", true),
-                    new Usuario("Ciclano", "ciclano@teste.com", "ciclano", false)));
+                    new Usuario("Ciclano", "ciclano@teste.com", "ciclano", false),
+                    new Usuario("Administrador", "teste@teste.com", "1234", true)));
     
     private Usuario usuario;
 

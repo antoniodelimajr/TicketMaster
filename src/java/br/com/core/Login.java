@@ -2,12 +2,13 @@ package br.com.core;
 
 import java.util.Objects;
 
-public class Login {
+public class Login extends Usuario {
     
     private String email;
     private String senha;
 
     public Login() {
+        super();
     }
    
     public String getEmail() {
