@@ -96,11 +96,12 @@ public class FilmeMB {
         return ("/admin/movies/edition?faces-redirect=true");
     }
 
-    public String atualizarUsuario() {
+    public String atualizarFilme() {
         return ("/admin/movies/listing?faces-redirect=true");
     }
 
-    public void removerFilme(Filme filme) {
+    public String removerFilme(Filme filme) {
         filmes.remove(filme);
+        return atualizarFilme();
     }
 }

@@ -58,14 +58,6 @@ public class SecaoMB{
         this.filmes = filmes;
     }
     
-    public void removerSalas(Sala sala){
-        salas.remove(sala);
-    }
-    
-    public void removerSecao(Secao secao) {
-        secoes.remove(secao);
-    }
-    
     public Secao findSecaoByCodigo(String codigo) {
         for (Secao e : secoes) {
             if (e.getCodigo().equals(codigo)) {
@@ -93,5 +85,10 @@ public class SecaoMB{
     
     public String atualizarSecao(){
         return("/admin/sections/listing?faces-redirect=true");
+    }
+    
+    public String removerSecao(Secao secao) {
+        secoes.remove(secao);
+        return atualizarSecao(); 
     }
 }

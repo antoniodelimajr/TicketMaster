@@ -45,10 +45,6 @@ public class VendaMB {
     public void setVenda(Venda venda) {
         this.venda = venda;
     }
-    
-    public void removerVenda(Venda venda){
-        vendas.remove(venda);
-    }
         
     public String novoVenda(){
         venda = new Venda();
@@ -68,5 +64,10 @@ public class VendaMB {
     
     public String atualizarVenda(){
         return("/admin/sales/listing?faces-redirect=true");
+    }
+    
+    public String removerVenda(Venda venda){
+        vendas.remove(venda);
+        return atualizarVenda();
     }
 }

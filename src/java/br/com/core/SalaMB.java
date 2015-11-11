@@ -36,10 +36,6 @@ public class SalaMB {
         this.sala = sala;
     }
 
-    public void removerSala(Sala sala) {
-        salas.remove(sala);
-    }
-
     public Sala findSalaByNumero(String numero) {
         for (Sala e : salas) {
             if (e.getNumero().equals(numero)) {
@@ -66,5 +62,10 @@ public class SalaMB {
 
     public String atualizarSala() {
         return ("/admin/rooms/listing?faces-redirect=true");
+    }
+    
+    public String removerSala(Sala sala) {
+        salas.remove(sala);
+        return atualizarSala();
     }
 }

@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="./../../Template/default.xhtml">
+
+    <ui:define name="content">
+        <h3><i class="fa fa-angle-right"></i> Usuários</h3>
+        <div class="row mt">
+            <div class="col-md-12">
+                <div class="form-panel">
+                    <h4><i class="fa fa-angle-right"></i> Listagem</h4>
+                    <div class="form-group">
+                        <br/>
+                        <h:dataTable value="#{usuarioMB.usuarios}" var="usuario" id="myTable" class="table table-striped">
+                            <h:column>
+                                <f:facet name="header">Nome</f:facet>#{usuario.nome}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">E-Mail</f:facet>#{usuario.email}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">É Admin?</f:facet>
+                                <h:form rendered="#{usuario.isAdmin eq false}">
+                                    <span class="label label-default" >NÃO</span>                                   
+                                </h:form>
+                                <h:form rendered="#{usuario.isAdmin eq true}">
+                                    <span class="label label-success" >SIM</span>                                   
+                                </h:form>
+                            </h:column>
+                            <h:column>
+                                <h:form class="form-group">
+                                    <h:commandLink class="btn btn-primary btn-sm" action="#{usuarioMB.editarUsuario(usuario)}"><i class="fa fa-pencil"/></h:commandLink>
+                                    <h:commandLink class="btn btn-danger btn-sm" action="#{usuarioMB.removerUsuario(usuario)}"><i class="fa fa-trash-o"/></h:commandLink>
+                                </h:form>
+                            </h:column>
+                        </h:dataTable>   
+                    </div>
+                    <div class="btn-group" style="float: right;">
+                        <h:form>
+                            <h:commandLink class="btn btn-primary btn-sm pull-right" style="width: 100px;" action="#{usuarioMB.novoUsuario()}" value="novo registro"/>
+                        </h:form>
+                    </div>
+                    <br/><br/>
+                </div>
+            </div>
+        </div>  
+    </ui:define>
+</ui:composition>

@@ -24,7 +24,22 @@
                                 <f:facet name="header">Nome</f:facet>#{filme.nome}
                             </h:column>
                             <h:column>
-                                <f:facet name="header">Gênero</f:facet>#{filme.genero}
+                                <f:facet name="header">Gênero</f:facet>
+                                <h:form rendered="#{filme.genero eq 'Ação'}">
+                                    <span class="label label-default" >Ação</span>                                   
+                                </h:form>
+                                <h:form rendered="#{filme.genero eq 'Comédia'}">
+                                    <span class="label label-primary" >Comédia</span>                                   
+                                </h:form>
+                                <h:form rendered="#{filme.genero eq 'Aventura'}">
+                                    <span class="label label-success" >Aventura</span>                                   
+                                </h:form>
+                                <h:form rendered="#{filme.genero eq 'Suspense'}">
+                                    <span class="label label-danger" >Suspense</span>                                   
+                                </h:form>
+                                <h:form rendered="#{filme.genero eq 'Drama'}">
+                                    <span class="label label-warning" >Drama</span>                                   
+                                </h:form>
                             </h:column>
                             <h:column>
                                 <h:form class="form-group">
