@@ -27,7 +27,7 @@ Funcionalidades:
 ## Info
 <strong>Faculdade de Tecnologia SENAC/RS<br/></strong>
 Tecnólogo em Análise e Desenvolvimento de Sistemas<br/>
-Programação para Internet II - 2015/1 - 5º Sem.<br/>
+Programação para Internet II - 2015/2 - 5º Sem.<br/>
 Prof. Luis Henrique Ries<br/>
 Aluno Antonio P. de Lima Jr.<br/>
 <a href="mailto:antoniolimajr@live.com">antoniolimajr@live.com</a>
