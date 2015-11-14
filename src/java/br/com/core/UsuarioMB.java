@@ -14,8 +14,8 @@ public class UsuarioMB {
             Arrays.asList(
                     new Usuario("Fulano", "fulano@teste.com", "fulano", false),
                     new Usuario("Beltrano", "beltrano@teste.com", "beltrano", true),
-                    new Usuario("Ciclano", "ciclano@teste.com", "ciclano", false),
-                    new Usuario("Administrador", "teste@teste.com", "1234", true)));
+                    new Usuario("Usuario", "user", "123", false),
+                    new Usuario("Administrador", "admin", "123", true)));
     
     private Usuario usuario;
 
@@ -42,7 +42,7 @@ public class UsuarioMB {
 
     public String salvarUsuario() {
         usuarios.add(usuario);
-        return ("/admin/users/listing?faces-redirect=true");
+        return atualizarUsuario();
     }
 
     public String editarUsuario(Usuario usuario) {
@@ -51,10 +51,11 @@ public class UsuarioMB {
     }
 
     public String atualizarUsuario() {
-        return ("/admin/users/listing?faces-redirect=true");
+        return ("/public/users/listing?faces-redirect=true");
     }
 
-    public void removerUsuario(Usuario usuario) {
+    public String removerUsuario(Usuario usuario) {
         usuarios.remove(usuario);
+        return atualizarUsuario();
     }
 }

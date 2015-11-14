@@ -22,7 +22,7 @@
         <div id="login-page">
             <div class="container">
                 <h:form class="form-login">                    
-                    <h2 class="form-login-heading"><i class="fa fa-youtube-play"/> <b>TicketMaster</b></h2>
+                    <h2 class="form-login-heading"><b>TicketMaster</b></h2>
                     <div class="login-wrap">
                         <h:messages class="alert alert-danger" showDetail="true"/>
                         <h:inputText class="form-control" a:placeholder="User ID" a:autofocus="true" value="#{loginMB.login.email}"/>
@@ -31,7 +31,6 @@
                         <label class="checkbox">
                             <span class="pull-right">
                                 <a data-toggle="modal" href="login.html#myModal"> Perdeu a senha?</a>
-
                             </span>
                         </label>
                         <h:commandLink class="btn btn-theme btn-block" type="submit" action="#{loginMB.logar()}">

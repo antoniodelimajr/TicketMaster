@@ -88,7 +88,7 @@ public class FilmeMB {
 
     public String salvarFilme() {
         filmes.add(filme);
-        return ("/admin/movies/listing?faces-redirect=true");
+        return atualizarFilme();
     }
 
     public String editarFilme(Filme filme) {
@@ -97,7 +97,7 @@ public class FilmeMB {
     }
 
     public String atualizarFilme() {
-        return ("/admin/movies/listing?faces-redirect=true");
+        return ("/public/movies/listing?faces-redirect=true");
     }
 
     public String removerFilme(Filme filme) {

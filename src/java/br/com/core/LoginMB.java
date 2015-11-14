@@ -11,7 +11,6 @@ public class LoginMB {
     
     private Login login;
     private Boolean isLogged = false;
-    private Boolean isAdmin = false;
     
     public LoginMB() {
         login = new Login();
@@ -31,14 +30,6 @@ public class LoginMB {
 
     public void setIsLogged(Boolean isLogged) {
         this.isLogged = isLogged;
-    }
-
-    public Boolean getIsAdmin() {
-        return isAdmin;
-    }
-
-    public void setIsAdmin(Boolean isAdmin) {
-        this.isAdmin = isAdmin;
     }
     
     public String logar(){    
@@ -62,13 +53,14 @@ public class LoginMB {
     public boolean verificaUsuario(){
         
         for(Usuario usuario : UsuarioMB.usuarios){
-            if(usuario.getEmail().equals(login.getEmail()) &&
-                    usuario.getSenha().equals(login.getSenha())){
-                isAdmin = usuario.getIsAdmin();
+            if(usuario.getEmail().equals(login.getEmail()) && usuario.getSenha().equals(login.getSenha())){
+                login.setEmail(usuario.getEmail());
+                login.setIsAdmin(usuario.getIsAdmin());
+                login.setNome(usuario.getNome());
+                login.setSenha(usuario.getSenha());
                 return true;
             } 
         }
-        isAdmin = false;
         return false;
     }
 }

@@ -52,7 +52,7 @@ public class SalaMB {
 
     public String salvarSala() {
         salas.add(sala);
-        return ("/admin/rooms/listing?faces-redirect=true");
+        return atualizarSala();
     }
 
     public String editarSala(Sala sala) {
@@ -61,7 +61,7 @@ public class SalaMB {
     }
 
     public String atualizarSala() {
-        return ("/admin/rooms/listing?faces-redirect=true");
+        return ("/public/rooms/listing?faces-redirect=true");
     }
     
     public String removerSala(Sala sala) {

@@ -75,7 +75,7 @@ public class SecaoMB{
     public String salvarSecao(){         
         secoes.add(secao);
         secao = new Secao();
-        return("/admin/sections/listing?faces-redirect=true");
+        return atualizarSecao();
     }
 
     public String editarSecao(Secao secao){
@@ -84,7 +84,7 @@ public class SecaoMB{
     }
     
     public String atualizarSecao(){
-        return("/admin/sections/listing?faces-redirect=true");
+        return("/public/sections/listing?faces-redirect=true");
     }
     
     public String removerSecao(Secao secao) {

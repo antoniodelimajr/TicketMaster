@@ -36,7 +36,7 @@ public class FiltroAdmin implements Filter {
         LoginMB loginMB = (LoginMB) sessao.getAttribute("loginMB");                   
 
         if(loginMB != null && loginMB.getIsLogged()){
-            if(loginMB.getIsAdmin()){
+            if(loginMB.getLogin().getIsAdmin()){
                 chain.doFilter(request, response);
             } else {
                 resp.sendRedirect(req.getContextPath()+"/public/ultra/principal.jsf");
