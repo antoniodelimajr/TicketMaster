@@ -28,14 +28,17 @@
                         <h:inputText class="form-control" a:placeholder="User ID" a:autofocus="true" value="#{loginMB.login.email}"/>
                         <br/>
                         <h:inputSecret class="form-control" a:placeholder="Senha" value="#{loginMB.login.senha}"/>
-                        <label class="checkbox">
+                        <!--<label class="checkbox">
                             <span class="pull-right">
                                 <a data-toggle="modal" href="login.html#myModal"> Perdeu a senha?</a>
                             </span>
                         </label>
+                        -->
+                        <br/>
                         <h:commandLink class="btn btn-theme btn-block" type="submit" action="#{loginMB.logar()}">
-                            <i class="fa fa-lock"/> FAZER LOGIN</h:commandLink>
-                        <hr/>
+                            <i class="fa fa-lock"/> FAZER LOGIN
+                        </h:commandLink>
+                        <!--<hr/>
                         <div class="login-social-link centered">
                             <p>ou você pode logar via rede social</p>
                             <h:commandLink class="btn btn-facebook" type="submit">
@@ -48,9 +51,9 @@
                             <a class="" href="#">
                                 Criar conta
                             </a>
-                        </div>
+                        </div>-->
                     </div>
-                    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+                    <!--<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -67,7 +70,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>	
+                    </div>-->	
                 </h:form>	  	
             </div>
         </div>
