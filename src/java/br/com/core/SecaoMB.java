@@ -21,7 +21,7 @@ public class SecaoMB{
     
     public SecaoMB() {       
 
-        this.salas = SalaMB.salas;
+        //this.salas = SalaMB.salas;
 //        this.filmes = FilmeMB.filmes;
         this.filmes = null;
         

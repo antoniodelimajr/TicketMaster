@@ -1,6 +1,5 @@
 package br.com.core;
 
-import br.com.core.util.JsfUtil;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -15,8 +14,7 @@ public class FilmeMB {
     private Filme filme;
     public List<Filme> filmes;
 
-    public FilmeMB() {
-    }
+    public FilmeMB() {}
 
     public FilmeFacade getFacade() {
         return ejbFacade;
@@ -49,12 +47,10 @@ public class FilmeMB {
 
     public List<Filme> findAll() {
         filmes = getFacade().findAll();
-
         if (filmes.isEmpty()) {
             popularBD();
             filmes = getFacade().findAll();
         }
-
         return filmes;
     }
 
@@ -75,13 +71,8 @@ public class FilmeMB {
     }
 
     public String alterarFilme() {
-        try {
-            getFacade().edit(filme);
-            return atualizarFilme();
-        } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, "Problemas ao realizar a alteração do registro.");
-            return null;
-        }
+        getFacade().edit(filme);
+        return atualizarFilme();
     }
 
     public String removerFilme(Filme filme) {

@@ -1,7 +1,5 @@
 package br.com.core;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -11,18 +9,13 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class SalaMB {
 
-    public static List<Sala> salas = new ArrayList<>(
-            Arrays.asList(new Sala("Sala 01", 35),
-                    new Sala("Sala 02", 35),
-                    new Sala("Sala 03", 35)));
-    
-    private Sala sala;
     @EJB
-    private br.com.core.SalaFacade ejbFacade;
+    private SalaFacade ejbFacade;
+    private Sala sala;
+    public List<Sala> salas;
 
-    public SalaMB() {
-    }
-    
+    public SalaMB() {}
+
     public SalaFacade getFacade() {
         return ejbFacade;
     }
@@ -52,12 +45,22 @@ public class SalaMB {
         return null;
     }
 
+    public List<Sala> findAll() {
+        salas = getFacade().findAll();
+        if (salas.isEmpty()) {
+            popularBD();
+            salas = getFacade().findAll();
+        }
+        return salas;
+    }
+
     public String novoSala() {
         sala = new Sala();
         return ("/admin/rooms/register?faces-redirect=true");
     }
 
     public String salvarSala() {
+        getFacade().create(sala);
         salas.add(sala);
         return atualizarSala();
     }
@@ -67,12 +70,25 @@ public class SalaMB {
         return ("/admin/rooms/edition?faces-redirect=true");
     }
 
-    public String atualizarSala() {
-        return ("/public/rooms/listing?faces-redirect=true");
+    public String alterarSala() {
+        getFacade().edit(sala);
+        return atualizarSala();
     }
-    
+
     public String removerSala(Sala sala) {
+        getFacade().remove(sala);
         salas.remove(sala);
         return atualizarSala();
+    }
+
+    public String atualizarSala() {
+        salas = getFacade().findAll();
+        return ("/public/rooms/listing?faces-redirect=true");
+    }
+
+    public void popularBD() {
+        getFacade().create(new Sala("Sala 01", 35));
+        getFacade().create(new Sala("Sala 02", 12));
+        getFacade().create(new Sala("Sala 03", 18));
     }
 }

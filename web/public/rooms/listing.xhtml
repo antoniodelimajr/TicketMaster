@@ -15,8 +15,9 @@
                 <div class="form-panel">
                     <h4><i class="fa fa-angle-right"></i> Listagem</h4>
                     <div class="form-group">
+                        <h:messages class="alert alert-danger" showDetail="true"/>
                         <br/>
-                        <h:dataTable value="#{salaMB.salas}" var="sala" id="myTable" class="table table-striped">
+                        <h:dataTable value="#{salaMB.findAll()}" var="sala" id="myTable" class="table table-striped">
                             <h:column>
                                 <f:facet name="header">Número</f:facet>#{sala.numero}
                             </h:column>
