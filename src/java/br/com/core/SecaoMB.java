@@ -10,26 +10,39 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class SecaoMB{
 
-    public static List<Secao> secoes;
-    
     private List<Sala> salas;
     private List<Filme> filmes;
     
-    private Secao secao;
     @EJB
-    private br.com.core.SecaoFacade ejbFacade;   
+    private SecaoFacade ejbFacade;   
+    
+    @EJB
+    private SalaFacade ejbSalaFacade;   
+    
+    @EJB
+    private FilmeFacade ejbFilmeFacade;  
+    
+    private Secao secao;
+    public List<Secao> secoes;
     
     public SecaoMB() {       
-
-        //this.salas = SalaMB.salas;
-//        this.filmes = FilmeMB.filmes;
-        this.filmes = null;
-        
-        if (secoes == null || secoes.size() == 0) {
+        if (secoes == null || secoes.isEmpty()) {
             secoes = new ArrayList<>();
         }
     }
 
+    public SecaoFacade getEjbFacade() {
+        return ejbFacade;
+    }
+
+    public SalaFacade getSalaFacade() {
+        return ejbSalaFacade;
+    }
+
+    public FilmeFacade getFilmeFacade() {
+        return ejbFilmeFacade;
+    }
+       
     public SecaoFacade getFacade() {
         return ejbFacade;
     }
@@ -75,12 +88,22 @@ public class SecaoMB{
         return null;
     }
      
+    public List<Secao> findAll() {       
+        
+        secoes = getFacade().findAll();       
+        salas = getSalaFacade().findAll();
+        filmes = getFilmeFacade().findAll();
+       
+        return secoes;
+    }
+    
     public String novoSecao(){
         secao = new Secao();
         return("/admin/sections/register?faces-redirect=true");
     }
     
-    public String salvarSecao(){         
+    public String salvarSecao(){    
+        getFacade().create(secao);
         secoes.add(secao);
         secao = new Secao();
         return atualizarSecao();
@@ -91,12 +114,19 @@ public class SecaoMB{
         return("/admin/sections/edition?faces-redirect=true");
     }
     
-    public String atualizarSecao(){
-        return("/public/sections/listing?faces-redirect=true");
+    public String alterarSecao() {
+        getFacade().edit(secao);
+        return atualizarSecao();
     }
     
     public String removerSecao(Secao secao) {
+        getFacade().remove(secao);
         secoes.remove(secao);
         return atualizarSecao(); 
+    }
+     
+    public String atualizarSecao(){
+        secoes = getFacade().findAll();
+        return("/public/sections/listing?faces-redirect=true");
     }
 }

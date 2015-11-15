@@ -20,11 +20,11 @@ public class Secao implements Serializable{
     @Column(name="secao_id")
     private String codigo;
     @Column
-    @Temporal(javax.persistence.TemporalType.DATE)
+    @Temporal(javax.persistence.TemporalType.TIME)
     private Date horario;
     @OneToOne
     private Sala sala;
-
+    @OneToOne
     private Filme filme;
 
     public Secao() {

@@ -21,10 +21,11 @@ public class SalaMB {
     }
 
     public List<Sala> getSalas() {
+        salas = getFacade().findAll();
         return salas;
     }
 
-    public void setSalas(List<Sala> salas) {
+    public void setSalas(List<Sala> salas) {        
         this.salas = salas;
     }
 

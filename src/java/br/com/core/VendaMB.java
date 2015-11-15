@@ -17,7 +17,7 @@ public class VendaMB {
 
     public VendaMB() {
         
-        secoes = SecaoMB.secoes;
+        //secoes = SecaoMB.secoes;
         
         if (vendas == null || vendas.size() == 0) {
             vendas = new ArrayList<>();

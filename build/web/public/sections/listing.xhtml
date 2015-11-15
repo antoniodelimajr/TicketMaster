@@ -16,7 +16,7 @@
                     <h4><i class="fa fa-angle-right"></i> Listagem</h4>
                     <div class="form-group">
                         <br/>
-                        <h:dataTable value="#{secaoMB.secoes}" var="secao" id="myTable" class="table table-striped">
+                        <h:dataTable value="#{secaoMB.findAll()}" var="secao" id="myTable" class="table table-striped">
                             <h:column>
                                 <f:facet name="header">Código</f:facet>#{secao.codigo}
                             </h:column>
