@@ -1,12 +1,29 @@
 package br.com.core;
 
 import java.util.Objects;
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
+@Entity
+@Table(name = "usuario")
 public class Usuario {
     
+    @Id
+    @NotNull
+    @Column(name = "usuario_id")
     private String nome;
+    @Column
+    @NotNull
     private String email;
+    @Column
+    @NotNull
     private String senha;
+    @Column
+    @NotNull
     private Boolean isAdmin;
 
     public Usuario() {

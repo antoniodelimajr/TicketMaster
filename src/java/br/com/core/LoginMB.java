@@ -1,5 +1,6 @@
 package br.com.core;
 
+import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -12,8 +13,15 @@ public class LoginMB {
     private Login login;
     private Boolean isLogged = false;
     
+    @EJB
+    private UsuarioFacade ejbUsuarioFacade;
+    
     public LoginMB() {
         login = new Login();
+    }
+
+    public UsuarioFacade getUsuarioFacade() {
+        return ejbUsuarioFacade;
     }
 
     public Login getLogin() {
@@ -52,8 +60,10 @@ public class LoginMB {
         
     public boolean verificaUsuario(){
         
-        for(Usuario usuario : UsuarioMB.usuarios){
-            if(usuario.getEmail().equals(login.getEmail()) && usuario.getSenha().equals(login.getSenha())){
+        for(Usuario usuario : getUsuarioFacade().findAll()){
+            if(usuario.getEmail().equals(login.getEmail()) && 
+                    usuario.getSenha().equals(login.getSenha())){
+                
                 login.setEmail(usuario.getEmail());
                 login.setIsAdmin(usuario.getIsAdmin());
                 login.setNome(usuario.getNome());
