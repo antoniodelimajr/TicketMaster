@@ -48,7 +48,7 @@ public class FilmeMB {
     public List<Filme> findAll() {
         filmes = getFacade().findAll();
         if (filmes.isEmpty()) {
-            popularBD();
+            initializateDB();
             filmes = getFacade().findAll();
         }
         return filmes;
@@ -86,7 +86,7 @@ public class FilmeMB {
         return ("/public/movies/listing?faces-redirect=true");
     }
 
-    public void popularBD() {
+    public void initializateDB() {
         getFacade().create(new Filme("A00001", "O Poderoso Chefão", "acao", ""));
         getFacade().create(new Filme("A00002", "O Mágico de Oz", "comedia", ""));
         getFacade().create(new Filme("A00003", "Cidadão Kane", "aventura", ""));

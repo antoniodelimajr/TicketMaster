@@ -5,6 +5,7 @@
     <class>br.com.core.Filme</class>
     <class>br.com.core.Sala</class>
     <class>br.com.core.Secao</class>
+    <class>br.com.core.Venda</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>

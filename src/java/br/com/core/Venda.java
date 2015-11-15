@@ -1,11 +1,25 @@
 package br.com.core;
 
+import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 
-public class Venda {
+@Entity
+@Table(name="venda")
+public class Venda implements Serializable {
 
+    @Id
+    @NotNull
+    @Column(name="venda_id")  
     private String codigo;
+    @Column
     private Integer qtdAssentos;
+    @OneToOne
     private Secao secao;
 
     public Venda() {

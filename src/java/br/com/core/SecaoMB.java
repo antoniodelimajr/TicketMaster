@@ -10,8 +10,10 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class SecaoMB{
 
+    private Secao secao;
     private List<Sala> salas;
     private List<Filme> filmes;
+    public List<Secao> secoes;
     
     @EJB
     private SecaoFacade ejbFacade;   
@@ -21,10 +23,7 @@ public class SecaoMB{
     
     @EJB
     private FilmeFacade ejbFilmeFacade;  
-    
-    private Secao secao;
-    public List<Secao> secoes;
-    
+       
     public SecaoMB() {       
         if (secoes == null || secoes.isEmpty()) {
             secoes = new ArrayList<>();
@@ -89,11 +88,9 @@ public class SecaoMB{
     }
      
     public List<Secao> findAll() {       
-        
         secoes = getFacade().findAll();       
         salas = getSalaFacade().findAll();
         filmes = getFilmeFacade().findAll();
-       
         return secoes;
     }
     

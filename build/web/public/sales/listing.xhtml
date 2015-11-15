@@ -17,7 +17,7 @@
                     <div class="form-group">
                         <p:growl id="growl" showDetail="true" sticky="true" />
                         <br/>
-                        <h:dataTable value="#{vendaMB.vendas}" var="venda" id="myTable" class="table table-striped">
+                        <h:dataTable value="#{vendaMB.findAll()}" var="venda" id="myTable" class="table table-striped">
                             <h:column>
                                 <f:facet name="header">Código</f:facet>#{venda.codigo}
                             </h:column>

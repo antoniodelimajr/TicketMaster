@@ -98,9 +98,4 @@ public class Secao implements Serializable{
         }
         return true;
     }     
-
-    @Override
-    public String toString() {
-        return "Secao{" + "codigo=" + codigo + ", horario=" + horario + ", sala=" + sala + ", filme=" + filme + '}';
-    }
 }

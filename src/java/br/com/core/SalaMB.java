@@ -49,7 +49,7 @@ public class SalaMB {
     public List<Sala> findAll() {
         salas = getFacade().findAll();
         if (salas.isEmpty()) {
-            popularBD();
+            initializateDB();
             salas = getFacade().findAll();
         }
         return salas;
@@ -87,7 +87,7 @@ public class SalaMB {
         return ("/public/rooms/listing?faces-redirect=true");
     }
 
-    public void popularBD() {
+    public void initializateDB() {
         getFacade().create(new Sala("Sala 01", 35));
         getFacade().create(new Sala("Sala 02", 12));
         getFacade().create(new Sala("Sala 03", 18));

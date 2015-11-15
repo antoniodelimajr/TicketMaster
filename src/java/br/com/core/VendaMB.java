@@ -2,6 +2,7 @@ package br.com.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -13,13 +14,17 @@ public class VendaMB {
 
     private List<Venda> vendas;
     private List<Secao> secoes;
+    
+    @EJB
+    private VendaFacade ejbFacade;   
+    
+    @EJB
+    private SecaoFacade ejbSecaoFacade;   
+    
     private Venda venda;
 
-    public VendaMB() {
-        
-        //secoes = SecaoMB.secoes;
-        
-        if (vendas == null || vendas.size() == 0) {
+    public VendaMB() {       
+        if (vendas == null || vendas.isEmpty()) {
             vendas = new ArrayList<>();
         }
     }
@@ -47,6 +52,20 @@ public class VendaMB {
     public void setVenda(Venda venda) {
         this.venda = venda;
     }
+
+    public VendaFacade getFacade() {
+        return ejbFacade;
+    }
+
+    public SecaoFacade getSecaoFacade() {
+        return ejbSecaoFacade;
+    }  
+        
+    public List<Venda> findAll() {       
+        vendas = getFacade().findAll();       
+        secoes = getSecaoFacade().findAll();
+        return vendas;
+    }
         
     public String novoVenda(){
         venda = new Venda();
@@ -54,15 +73,13 @@ public class VendaMB {
     }
     
     public String salvarVenda(){                     
-       
         if (venda.getQtdAssentos() <= (venda.getSecao().getSala().getAssentos() - venda.getSecao().getSala().getReservados())){                       
             venda.getSecao().getSala().setReservados(venda.getSecao().getSala().getReservados() + venda.getQtdAssentos());
+            getFacade().create(venda);
             vendas.add(venda);
             venda = new Venda();            
             return atualizarVenda();
-            
         } else {
-           
             FacesContext.getCurrentInstance().addMessage(null, 
                     new FacesMessage(FacesMessage.SEVERITY_ERROR, "ERRO:", "A venda não poderá ser feita pois não existem assentos disponíveis para esta seção!"));                        
             return null;            
@@ -74,12 +91,19 @@ public class VendaMB {
         return("/admin/sales/edition?faces-redirect=true");
     }
     
-    public String atualizarVenda(){
-        return("/public/sales/listing?faces-redirect=true");
+    public String alterarVenda() {
+        getFacade().edit(venda);
+        return atualizarVenda();
     }
     
     public String removerVenda(Venda venda){
+        getFacade().remove(venda);
         vendas.remove(venda);
         return atualizarVenda();
+    }
+     
+    public String atualizarVenda(){
+        vendas = getFacade().findAll();
+        return("/public/sales/listing?faces-redirect=true");
     }
 }
