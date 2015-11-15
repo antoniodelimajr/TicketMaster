@@ -15,8 +15,9 @@
                 <div class="form-panel">
                     <h4><i class="fa fa-angle-right"></i> Listagem</h4>
                     <div class="form-group">
+                        <h:messages class="alert alert-danger" showDetail="true"/>
                         <br/>
-                        <h:dataTable value="#{filmeMB.filmes}" var="filme" id="myTable" class="table table-striped">
+                        <h:dataTable value="#{filmeMB.findAll()}" var="filme" id="myTable" class="table table-striped">
                             <h:column>
                                 <f:facet name="header">Código</f:facet>#{filme.codigo}
                             </h:column>
@@ -25,19 +26,19 @@
                             </h:column>
                             <h:column>
                                 <f:facet name="header">Gênero</f:facet>
-                                <h:form rendered="#{filme.genero eq 'Ação'}">
+                                <h:form rendered="#{filme.genero eq 'acao'}">
                                     <span class="label label-default" >Ação</span>                                   
                                 </h:form>
-                                <h:form rendered="#{filme.genero eq 'Comédia'}">
+                                <h:form rendered="#{filme.genero eq 'comedia'}">
                                     <span class="label label-primary" >Comédia</span>                                   
                                 </h:form>
-                                <h:form rendered="#{filme.genero eq 'Aventura'}">
+                                <h:form rendered="#{filme.genero eq 'aventura'}">
                                     <span class="label label-success" >Aventura</span>                                   
                                 </h:form>
-                                <h:form rendered="#{filme.genero eq 'Suspense'}">
+                                <h:form rendered="#{filme.genero eq 'suspense'}">
                                     <span class="label label-danger" >Suspense</span>                                   
                                 </h:form>
-                                <h:form rendered="#{filme.genero eq 'Drama'}">
+                                <h:form rendered="#{filme.genero eq 'drama'}">
                                     <span class="label label-warning" >Drama</span>                                   
                                 </h:form>
                             </h:column>

@@ -9,12 +9,12 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="filme")
-public class Filme implements Serializable{
+@Table(name = "filme")
+public class Filme implements Serializable {
 
     @Id
     @NotNull
-    @Column(name="filme_id")
+    @Column(name = "filme_id")
     private String codigo;
     @Column
     private String nome;
@@ -23,8 +23,7 @@ public class Filme implements Serializable{
     @Column
     private String sinopse;
 
-    public Filme() {
-    }
+    public Filme() {}
 
     public Filme(String codigo, String nome, String genero, String sinopse) {
         this.codigo = codigo;
@@ -63,11 +62,11 @@ public class Filme implements Serializable{
 
     public void setSinopse(String sinopse) {
         this.sinopse = sinopse;
-    }   
+    }
 
     @Override
     public int hashCode() {
-        int hash = 3;
+        int hash = 7;
         return hash;
     }
 
@@ -93,10 +92,5 @@ public class Filme implements Serializable{
             return false;
         }
         return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Filme{" + "codigo=" + codigo + ", nome=" + nome + ", genero=" + genero + ", sinopse=" + sinopse + '}';
     }
 }

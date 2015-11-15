@@ -22,7 +22,8 @@ public class SecaoMB{
     public SecaoMB() {       
 
         this.salas = SalaMB.salas;
-        this.filmes = FilmeMB.filmes;
+//        this.filmes = FilmeMB.filmes;
+        this.filmes = null;
         
         if (secoes == null || secoes.size() == 0) {
             secoes = new ArrayList<>();
