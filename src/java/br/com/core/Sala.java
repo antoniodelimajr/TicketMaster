@@ -1,10 +1,22 @@
 package br.com.core;
 
+import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
-public class Sala {
+@Entity
+@Table(name="sala")
+public class Sala implements Serializable{
 
+    @Id
+    @NotNull
+    @Column(name="sala_id")  
     private String numero;
+    @Column 
     private Integer assentos;
     private static Integer reservados;
 
@@ -68,6 +80,8 @@ public class Sala {
         return true;
     }
 
-    
-
+    @Override
+    public String toString() {
+        return "Sala{" + "numero=" + numero + ", assentos=" + assentos + '}';
+    }
 }

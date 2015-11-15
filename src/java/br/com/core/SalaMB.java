@@ -3,6 +3,7 @@ package br.com.core;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -16,8 +17,14 @@ public class SalaMB {
                     new Sala("Sala 03", 35)));
     
     private Sala sala;
+    @EJB
+    private br.com.core.SalaFacade ejbFacade;
 
     public SalaMB() {
+    }
+    
+    public SalaFacade getFacade() {
+        return ejbFacade;
     }
 
     public List<Sala> getSalas() {

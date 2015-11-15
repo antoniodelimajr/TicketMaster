@@ -1,12 +1,26 @@
 package br.com.core;
 
 import java.util.Objects;
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
-public class Filme {
+@Entity
+@Table(name="filme")
+public class Filme implements Serializable{
 
+    @Id
+    @NotNull
+    @Column(name="filme_id")
     private String codigo;
+    @Column
     private String nome;
+    @Column
     private String genero;
+    @Column
     private String sinopse;
 
     public Filme() {
@@ -81,5 +95,8 @@ public class Filme {
         return true;
     }
 
-  
+    @Override
+    public String toString() {
+        return "Filme{" + "codigo=" + codigo + ", nome=" + nome + ", genero=" + genero + ", sinopse=" + sinopse + '}';
+    }
 }

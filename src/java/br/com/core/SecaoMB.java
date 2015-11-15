@@ -2,6 +2,7 @@ package br.com.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -15,6 +16,8 @@ public class SecaoMB{
     private List<Filme> filmes;
     
     private Secao secao;
+    @EJB
+    private br.com.core.SecaoFacade ejbFacade;   
     
     public SecaoMB() {       
 
@@ -26,6 +29,10 @@ public class SecaoMB{
         }
     }
 
+    public SecaoFacade getFacade() {
+        return ejbFacade;
+    }
+    
     public List<Secao> getSecoes() {
         return secoes;
     }

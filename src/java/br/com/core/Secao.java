@@ -1,13 +1,30 @@
 package br.com.core;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.validation.constraints.NotNull;
 
-public class Secao {
+@Entity
+@Table(name="secao")
+public class Secao implements Serializable{
 
+    @Id
+    @NotNull
+    @Column(name="secao_id")
     private String codigo;
+    @Column
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date horario;
+    @OneToOne
     private Sala sala;
+
     private Filme filme;
 
     public Secao() {
@@ -81,4 +98,9 @@ public class Secao {
         }
         return true;
     }     
+
+    @Override
+    public String toString() {
+        return "Secao{" + "codigo=" + codigo + ", horario=" + horario + ", sala=" + sala + ", filme=" + filme + '}';
+    }
 }

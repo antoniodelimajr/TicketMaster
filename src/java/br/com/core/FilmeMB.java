@@ -3,8 +3,11 @@ package br.com.core;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 @ManagedBean
 @SessionScoped
@@ -52,8 +55,14 @@ public class FilmeMB {
                     new Filme("A00039", "O Iluminado", "Suspense", "")));
 
     private Filme filme;
+    @EJB
+    private br.com.core.FilmeFacade ejbFacade;
 
     public FilmeMB() {
+    }
+    
+    public FilmeFacade getFacade() {
+        return ejbFacade;
     }
 
     public List<Filme> getFilmes() {
@@ -87,7 +96,7 @@ public class FilmeMB {
     }
 
     public String salvarFilme() {
-        filmes.add(filme);
+        filmes.add(filme);                         
         return atualizarFilme();
     }
 
