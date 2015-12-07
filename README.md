@@ -1,28 +1,19 @@
 # TicketMaster - Controle de Cinema
 
-## Especificação do Trabalho II
+## Especificação do Trabalho III
 
-Este trabalho consiste em desenvolver uma aplicação Web utilizando Java Server Faces (JSF) e que realize persistência através do Java Persistence API (JPA). O objetivo é desenvolver a aplicação Web aplicando os padrões MVC e MOR, e utilizar as técnicas e funcionalidades vistas na disciplina de Programação para Internet II.
+Este trabalho consiste no desenvolvimento de uma aplicação Web multi-arquitetura, utilizando serviços Web (Web Services Restful). O objetivo deste trabalho é permitir os alunos aplicarem os conceitos e funcionalidades de REST. Este trabalho juntamente com os outros dois estabelecem todas as competências abordadas na disciplina.
 
 #### Instruções gerais:
 
-Com base na especificação realizada anteriormente, o grupo de alunos (um ou dois alunos) deverá realizar uma aplicação conforme a especificação proposta. A aplicação deverá ser composta por um CRUD de pelo menos três entidades, uma funcionalidade específica, além de autenticação por login e senha, tendo dois níveis de usuário (ex: admin e comum).
+A proposta desse trabalho é realizar a extensão dos trabalhos anteriores, disponibilizando serviços Web e consumindo-os utilizando uma aplicação cliente Desktop e/ou um front-end de aplicação Web (HTML+CSS+Javascript). Para isso, primeiramente, o aluno deverá estender a especificação geral de sua aplicação específica (ou criar apenas as funcionalidades de negócio extras), apresentando pelo menos dois serviços (funcionalidades diferentes) que serão disponíveis utilizando o conceito de serviços Web RESTful (arquitetura REST). Esses serviços deverão obrigatoriamente acessar o banco de dados da aplicação utilizando JPA.
 
-A aplicação desenvolvida deverá contemplar alguns assuntos vistos em aula. Assim, a avaliação será baseada de acordo com as funcionalidades a serem desenvolvidas e com os conceitos de JSF vistos em aula empregados no desenvolvimento dessa aplicação.
+Para consumir esses serviços, uma aplicação cliente deverá ser implementada. Essa aplicação pode ser desktop e/ou Web (front-end).  Essa aplicação deve conter uma interface gráfica (pode ser feita diretamente no Netbeans no caso de Java Desktop) que realize a funcionalidade de maneira adequada. A relevância dessa aplicação no domínio escolhido pelo(s) aluno(s) é extremamente importante para o trabalho.
+
+Caso o aluno não tenha enviado a especificação, ele deverá manter o tema definido no Trabalho I (no Anexo do Trabalho I). Os alunos poderão realizar o trabalho individualmente ou em dupla (mantendo a dupla do Trabalho I e II).
+
+A aplicação cliente, além de acessar os serviços do servidor, deverá realizar leitura e/ou escrita em XML ou JSON, para uma determinada funcionalidade da aplicação. Essa leitura e/ou escrita deverá ter um propósito bem especificado (por exemplo, carregar uma lista de disciplinas descrita em XML, gravar um arquivo JSON para backup).
 <br/><br/>
-
-## Tema do Trabalho
-
-#### Venda de Ingressos no Cinema 
-
-Funcionalidades:
-- Cadastro de Filmes: anota-se para filme o código, nome do filme, gênero (String) e sinopse.
-- Cadastro de Salas: anota-se para sala o número da sala e a quantidade de assentos
-- Cadastro de Seção: relaciona-se em cada seção a sala (objeto), um horário (só hora, mas utilizar Date) e o filme (objeto).
-- Venda de ingressos: realiza o registro de uma venda, relacionando a seção e realizando o controle da quantidade de assentos.
-- Relatórios: venda por filme, por horários, salas, seções, etc; filmes que estiveram em mais seções, salas mais utilizadas, etc.
-
-<br/>
 
 ## Info
 <strong>Faculdade de Tecnologia SENAC/RS<br/></strong>
