@@ -7,9 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name = "filme")
+@XmlRootElement
 public class Filme implements Serializable {
 
     @Id

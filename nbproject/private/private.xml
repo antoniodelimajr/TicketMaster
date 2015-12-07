@@ -3,7 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/workspace_pw2/TicketMaster/src/java/br/com/core/FilmeMB.java</file>
+            <file>file:/C:/wkspc_pw2/TicketMaster/web/WEB-INF/glassfish-web.xml</file>
+            <file>file:/C:/wkspc_pw2/TicketMaster/src/conf/persistence.xml</file>
+            <file>file:/C:/wkspc_pw2/TicketMaster/web/WEB-INF/web.xml</file>
+            <file>file:/C:/wkspc_pw2/TicketMaster/src/java/br/com/core/persistenceUtil/AbstractFacade.java</file>
         </group>
     </open-files>
 </project-private>
